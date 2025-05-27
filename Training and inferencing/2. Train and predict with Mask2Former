@@ -1,0 +1,33 @@
+The project directory may look like this:
+Root_dir
+├── input
+│   ├── inferencing── images
+│   └── training
+│       ├── train
+│       │   ├── images
+│       │   └──  masks
+│       └──  valid
+│           ├── images
+│           └──  masks
+├── output     
+│   ├── trained_model
+│   ├── prediction    # prediction will be stored here
+│   ├── model_iou    # best model based on IoU will be stored here 
+│   ├── model_loss   # best model based on loss will be stored here 
+│   ├── valid_preds
+│   ├── loss.png
+│   └── miou.png
+├── config.py
+├── custom_datasets.py  # You can modify the get_images function if you want to change the directory structure of your project
+├── engine.py
+├── infer.py
+├── predictParallel.py  # parallel processing 
+├── model.py
+├── train.py     
+└── utils.py
+
+To train your model, after you have installed Mask2Former, just 
+- Activate the mask2former environment using conda: e.g., conda activate mask2former
+- Use the cd command to get inside the root_dir, eg, cd root_dir
+- Use a command line to train: python train.py --batch 4 --imgsz 640 640 --lr 0.0001 --epochs 100
+- Use a command line to predict: e.g., python predictParallel.py --input root_path/input/inferencing/images --device cpu --imgsz 640 640 --model outputs/trained_model

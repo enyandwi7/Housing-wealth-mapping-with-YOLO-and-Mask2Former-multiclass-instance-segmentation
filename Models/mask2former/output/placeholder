@@ -1,0 +1,2 @@
+The output will contain the trained model and predictions.
+You can modify the structure of folders and files by just edit the get_images fucntion inside custom_datasets.py. 
